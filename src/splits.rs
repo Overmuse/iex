@@ -13,19 +13,19 @@ pub struct GetSplits<'a> {
 #[derive(Debug, Clone, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Split {
-    ex_date: NaiveDate,
-    declared_date: NaiveDate,
-    ratio: f64,
-    to_factor: f64,
-    from_factor: f64,
-    description: String,
-    symbol: String,
-    id: String,
-    source: Option<String>,
-    key: String,
-    subkey: String,
-    date: Option<usize>,
-    updated: usize,
+    pub ex_date: NaiveDate,
+    pub declared_date: NaiveDate,
+    pub ratio: f64,
+    pub to_factor: f64,
+    pub from_factor: f64,
+    pub description: String,
+    pub symbol: String,
+    pub id: String,
+    pub source: Option<String>,
+    pub key: String,
+    pub subkey: String,
+    pub date: Option<usize>,
+    pub updated: usize,
 }
 
 impl Request for GetSplits<'_> {

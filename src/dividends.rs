@@ -30,22 +30,22 @@ pub enum Flag {
 #[derive(Debug, Clone, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Dividend {
-    amount: Decimal,
-    currency: String,
-    description: String,
-    declared_date: NaiveDate,
-    ex_date: NaiveDate,
-    flag: Flag,
-    frequency: String,
-    payment_date: NaiveDate,
-    record_date: NaiveDate,
-    refid: usize,
-    symbol: String,
-    id: String,
-    key: String,
-    subkey: String,
-    date: usize,
-    updated: usize,
+    pub amount: Decimal,
+    pub currency: String,
+    pub description: String,
+    pub declared_date: NaiveDate,
+    pub ex_date: NaiveDate,
+    pub flag: Flag,
+    pub frequency: String,
+    pub payment_date: NaiveDate,
+    pub record_date: NaiveDate,
+    pub refid: usize,
+    pub symbol: String,
+    pub id: String,
+    pub key: String,
+    pub subkey: String,
+    pub date: usize,
+    pub updated: usize,
 }
 
 impl Request for GetDividends<'_> {
