@@ -33,7 +33,8 @@ pub struct Dividend {
     pub amount: Decimal,
     pub currency: String,
     pub description: String,
-    pub declared_date: NaiveDate,
+    // This field is sometimes formatted as 0000-00-00, which breaks deserialization.
+    // pub declared_date: Option<NaiveDate>,
     pub ex_date: NaiveDate,
     pub flag: Flag,
     pub frequency: String,
@@ -69,7 +70,7 @@ mod test {
             .match_query(Matcher::AllOf(vec![
                     Matcher::UrlEncoded("token".into(), "TOKEN".into()),
             ]))
-            .with_body(r#"[{"amount":0.70919585493507512,"currency":"USD","declaredDate":"2020-10-19","description":"OrdinaryShares","exDate":"2020-10-28","flag":"Cash","frequency":"quarterly","paymentDate":"2020-11-06","recordDate":"2020-10-28","refid":2096218,"symbol":"AAPL","id":"DIVIDENDS","key":"AAPL","subkey":"2053393","date":1612392166191,"updated":1612392166191}]"#)
+            .with_body(r#"[{"amount":0.22,"currency":"USD","declaredDate":"0000-00-00","description":"Ordinary Shares","exDate":"2021-08-06","flag":"Cash","frequency":"quarterly","paymentDate":"2021-08-12","recordDate":"2021-08-09","refid":2274911,"symbol":"AAPL","id":"DIVIDENDS","key":"AAPL","subkey":"2274911","date":1628208000000,"updated":1627518795000}]"#)
             .create();
         let url = mockito::server_url();
 
